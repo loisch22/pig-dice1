@@ -12,7 +12,14 @@ function Player(name, cs, hold, total){
 
 Player.prototype.play = function(rand) {
   this.currentScore += rand;
+  if (this.holdCurrentScore == true) {
+    this.totalScore += this.currentScore;
+  }
   return this.currentScore;
+};
+Player.prototype.getTotalScore = function(currentScore) {
+    this.totalScore += currentScore;
+    return this.totalScore;
 };
 
 var player1;
@@ -43,9 +50,10 @@ $(document).ready(function() {
     $('#rollDice2').prop('disabled', true);
 
     if (rand == 1) {
-      currentScore = 0;
+      player1.currentScore = 0;
       $('#rollDice1').prop('disabled', true);
       $('#rollDice2').prop('disabled', false);
+      $(".currentScore").text('0');
     }
 
   });
@@ -53,17 +61,52 @@ $(document).ready(function() {
     event.preventDefault();
     var rand = generateRandom();
     var currentScore = player2.play(rand);
+    console.log(player2.currentScore);
     $(".randomNumber").text(rand);
     $(".currentScore").text(currentScore);
     $('#rollDice1').prop('disabled', true);
 
     if (rand == 1) {
-      currentScore = 0;
+      player2.currentScore = 0;
       $('#rollDice2').prop('disabled', true);
       $('#rollDice1').prop('disabled', false);
+      $(".currentScore").text('0');
     }
-
   });
+  $("#holdPlayer1").click(function(event) {
+    event.preventDefault();
+    //var rand = generateRandom();
+    // var currentScore = player1.play(rand);
+    var totalScore = player1.getTotalScore(player1.currentScore);
+    $(".randomNumber").text('0');
+    player1.currentScore = 0;
+    $(".currentScore").text(player1.currentScore);
+    $('#rollDice1').prop('disabled', true);
+    $('#rollDice2').prop('disabled', false);
+    $(".player1Score").text(totalScore);
+
+    if (player1.totalScore >= 100) {
+      alert("Congratulations Player 1 Wins!")
+    }
+  });
+
+  $("#holdPlayer2").click(function(event) {
+    event.preventDefault();
+    //var rand = generateRandom();
+    // var currentScore = player2.play(rand);
+    var totalScore = player2.getTotalScore(player2.currentScore);
+    $(".randomNumber").text('0');
+    player2.currentScore = 0;
+    $(".currentScore").text(player2.currentScore);
+    $('#rollDice2').prop('disabled', true);
+    $('#rollDice1').prop('disabled', false);
+    $(".player2Score").text(totalScore);
+
+    if (player2.totalScore >= 100) {
+      alert("Congratulations Player 2 Wins!")
+    }
+  });
+
   $("#exitGame").click(function(event) {
     event.preventDefault();
     $(".gameBoard").hide();

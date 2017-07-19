@@ -40,6 +40,13 @@ $(document).ready(function() {
     var currentScore = player1.play(rand);
     $(".randomNumber").text(rand);
     $(".currentScore").text(currentScore);
+    $('#rollDice2').prop('disabled', true);
+
+    if (rand == 1) {
+      currentScore = 0;
+      $('#rollDice1').prop('disabled', true);
+      $('#rollDice2').prop('disabled', false);
+    }
 
   });
   $("#rollDice2").click(function(event) {
@@ -48,6 +55,14 @@ $(document).ready(function() {
     var currentScore = player2.play(rand);
     $(".randomNumber").text(rand);
     $(".currentScore").text(currentScore);
+    $('#rollDice1').prop('disabled', true);
+
+    if (rand == 1) {
+      currentScore = 0;
+      $('#rollDice2').prop('disabled', true);
+      $('#rollDice1').prop('disabled', false);
+    }
+
   });
   $("#exitGame").click(function(event) {
     event.preventDefault();

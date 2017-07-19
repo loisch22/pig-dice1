@@ -10,66 +10,95 @@
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
-      <form id="registration">
-        <h2>Please enter your name:</h2>
-        <div class="form-group">
-          <label for="player1Name">Player 1:</label>
-          <input id="player1Name" class="form-control" type="text">
+    <!-- <img src="img/trophy.jpeg" alt="trophy"> -->
+    <div class="backgroundImage">
+      <div class="container">
+        <div class="jumbotron">
+          <h1> Welcome to the Pig Dice game!</h1>
         </div>
-        <div class="form-group">
-          <label for="player2Name">Player 2:</label>
-          <input id="player2Name" class="form-control" type="text">
-        </div>
-        <button type="submit" class="btn btn-primary">PLAY</button>
-      </form>
-
-      <div class="gameBoard">
-        <h1 id="rollDice">Roll Dice</h1>
-        <div class="randomNumber">
-
-        </div>
-        <p id="currentScore"><strong>Current Round Score</strong></p>
-        <div class="currentScore">
-
-        </div>
-
-        <div class="row">
-          <div class="col-md-5">
-            <div class="player1">
-
-            </div>
-            <div class="form-group">
-              <button id="rollDice1" class="btn btn-lg btn-default">Roll Dice</button>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-lg btn-success" id="holdPlayer1">Hold</button>
-            </div>
-            <div class="player1Score">
-
-            </div>
+        <form id="registration">
+          <div class="form-group">
+            <label for="player1Name">Player 1:</label>
+            <input id="player1Name" class="form-control" type="text" placeholder="Your name">
           </div>
-          <div class="col-md-2">
+          <div class="form-group">
+            <label for="player2Name">Player 2:</label>
+            <input id="player2Name" class="form-control" type="text" placeholder="Your name">
           </div>
-          <div class="col-md-5">
-            <div class="player2">
-
-            </div>
-            <div class="form-group">
-              <button id="rollDice2" class="btn btn-lg btn-default">Roll Dice</button>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-lg btn-success" id="holdPlayer2">Hold</button>
-            </div>
-            <div class="player2Score">
-
-            </div>
+          <button type="submit" class="btn btn-primary">PLAY</button>
+        </form>
+      <div id="frontPageImg" class="row">
+        <div class="col-lg-6">
+          <div id="dice">
+            <img src="img/dice2.png" alt="dice2">
           </div>
         </div>
-        <div  class="form-group">
-          <button class="btn btn-lg btn-danger" id="exitGame">Exit Game</button>
+        <div class="col-lg-6">
+          <div id="pig">
+            <img src="img/pig1.jpeg" alt="pig">
+          </div>
+        </div>
+      </div>
+        <div class="gameBoard">
+          <h1 id="rollDice">Roll Dice</h1>
+          <div class="randomNumber">
+
+          </div>
+          <p id="currentScore"><strong>Current Round Score</strong></p>
+          <div class="currentScore">
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-5">
+              <img src="img/player.jpeg" alt="shield graphic">
+
+              <div class="well">
+                <div class="player1">
+
+                </div>
+                <div class="form-group">
+                  <button id="rollDice1" class="btn btn-lg btn-default">Roll Dice</button>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-lg btn-success" id="holdPlayer1">Hold</button>
+                </div>
+                <div class="player1Score">
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-2">
+              <p><strong>VS.</strong></p>
+            </div>
+            <div class="col-md-5">
+              <img src="img/player1.jpeg" alt="graphic of boy">
+
+              <div class="well">
+                <div class="player2">
+
+                </div>
+                <div class="form-group">
+                  <button id="rollDice2" class="btn btn-lg btn-default">Roll Dice</button>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-lg btn-success" id="holdPlayer2">Hold</button>
+                </div>
+                <div class="player2Score">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div  class="form-group">
+            <button class="btn btn-lg btn-danger" id="exitGame">If you are afraid of gambling... Exit Game</button>
+          </div>
         </div>
       </div>
     </div>

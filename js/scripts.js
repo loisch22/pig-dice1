@@ -37,9 +37,9 @@ $(document).ready(function() {
     $(".player1").text(player1.playerName);
     $(".player2").text(player2.playerName);
 
-
     $(".gameBoard").show();
     $("#registration").hide();
+    $("#frontPageImg").hide();
   });
   $("#rollDice1").click(function(event) {
     event.preventDefault();

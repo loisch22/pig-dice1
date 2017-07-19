@@ -6,9 +6,21 @@
   margin: 10px 300px 10px 300px;
 }
 
+.player1, .player2 {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 #rollDice, #currentScore {
   text-align: center;
 }
 .gameBoard{
   display: none;
+  text-align: center;
+}
+#exitGame {
+  margin-top: 100px;
+  margin-bottom: 50px;
 }

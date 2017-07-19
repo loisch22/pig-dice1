@@ -10,15 +10,13 @@ function Player(name, cs, hold, total){
   this.totalScore = total;
 }
 
-Player.prototype.play = function () {
-  var randomNumber = generateRandom();
-  this.currentScore += randomNumber;
+Player.prototype.play = function(rand) {
+  this.currentScore += rand;
+  return this.currentScore;
 };
 
-
-
-
-
+var player1;
+var player2;
 
 //UI logic
 $(document).ready(function() {
@@ -26,8 +24,9 @@ $(document).ready(function() {
     event.preventDefault();
     var player1Name = $("#player1Name").val();
     var player2Name = $("#player2Name").val();
-    var player1 = new Player(player1Name, 0, false, 0);
-    var player2 = new Player(player2Name, 0, false, 0);
+    player1 = new Player(player1Name, 0, false, 0);
+    player2 = new Player(player2Name, 0, false, 0);
+
     $(".player1").text(player1.playerName);
     $(".player2").text(player2.playerName);
 
@@ -35,9 +34,27 @@ $(document).ready(function() {
     $(".gameBoard").show();
     $("#registration").hide();
   });
+  $("#rollDice1").click(function(event) {
+    event.preventDefault();
+    var rand = generateRandom();
+    var currentScore = player1.play(rand);
+    $(".randomNumber").text(rand);
+    $(".currentScore").text(currentScore);
+
+  });
+  $("#rollDice2").click(function(event) {
+    event.preventDefault();
+    var rand = generateRandom();
+    var currentScore = player2.play(rand);
+    $(".randomNumber").text(rand);
+    $(".currentScore").text(currentScore);
+  });
   $("#exitGame").click(function(event) {
     event.preventDefault();
     $(".gameBoard").hide();
     $("#registration").show();
+    $("#player1Name").val('');
+    $("#player2Name").val('');
+
   });
 });

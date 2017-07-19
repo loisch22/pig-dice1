@@ -1,0 +1,14 @@
+.randomNumber, .currentScore, .player1Score, .player2Score {
+  border: solid;
+  padding: 30px;
+}
+.randomNumber, .currentScore {
+  margin: 10px 300px 10px 300px;
+}
+
+#rollDice, #currentScore {
+  text-align: center;
+}
+.gameBoard{
+  display: none;
+}
